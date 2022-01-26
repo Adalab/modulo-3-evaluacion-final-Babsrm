@@ -2,33 +2,33 @@
 import { useEffect, useState } from 'react';
 import callToApi from '../services/api';
 //import ls from '../services/localstorage';
-//import { v4 as uuid } from 'uuid';
+import { v4 as uuid } from 'uuid';
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
 import CharDetail from './CharDetail';
 import CharList from './CharList';
 import Filter from './Filter';
 //import PropTypes from 'prop-types';
 
-//console.log(uuid());
+console.log(uuid());
 
 function App() {
   
   const getTitle = (text) => <h1>{text}</h1>;
   const [chars, setChars] = useState([]);
   const [filterName, setFilterName] = useState('');
-  const [filterHouse, setFilterHouse] = useState('');
+  const [filterHouse, setFilterHouse] = useState('Gryffindor');
 
   useEffect(() => {
-    callToApi().then((charsData) => {
+    callToApi(filterHouse).then((charsData) => {
       setChars(charsData);
     });
-  }, []);
+  }, [filterHouse]);
 
   //funcion manejadora de los filtros
   const handleFilter = (data) => {
-    if (data.key === 'name') {
+    if (data.name === 'name') {
       setFilterName(data.value);
-    } else if (data.key === 'gender') {
+    } else if (data.house === 'house') {
       setFilterHouse(data.value);
     // } else if (data.key === 'city') {
     //   if (filterCities.includes(data.value)) {
@@ -46,13 +46,9 @@ function App() {
       return char.name.toLowerCase().includes(filterName.toLowerCase());
     })
     .filter((char) => {
-      //return filterGender === '' ? true : user.gender === filterGender;
-      if (filterHouse === '') {
-        return true;
-      } else {
         return char.house === filterHouse;
       }
-    })
+    )
     // .filter((char) => {
     //   if (filterCities.length === 0) {
     //     return true;
@@ -61,17 +57,10 @@ function App() {
     //   }
    // });
 
-  // sacar ciudades del array/ filtrar las no repetidas/ pintar los checkbox
-
-  // const getCities = () => {
-  //   const userCities = users.map((user) => user.city);
-  //   const uniqueCities = new Set(userCities);
-  //   const uniques = [...uniqueCities];
-  //   return uniques;
-  //};
+  
   const renderCharDetail = (props) => {
-    const routeId = props.match.params.userId;
-    const foundChar = chars.find((char) => char.id === routeId);
+    const routeId = props.match.params.char.uuid;
+    const foundChar = chars.find((char) => char.uuid === routeId);
     //validar-- foundUser
     return <CharDetail char={foundChar} />;
   };
@@ -122,8 +111,6 @@ function App() {
               handleFilter={handleFilter}
               filterName={filterName}
               filterHouse={filterHouse}
-              //cities={getCities()}
-             // filterCities={filterCities}
             />
             <CharList chars={filteredChars} />
           </div>

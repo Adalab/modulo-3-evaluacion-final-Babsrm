@@ -17,11 +17,10 @@ const FilterHouse = (props) => {
           onChange={handleChange}
           value={props.filterHouse}
         >
-          <option value="">Todas</option>
-          <option value="gryffindor">Gryffindor</option>
-          <option value="slytherin">Slytherin</option>
-          <option value="ravenclaw">Ravenclaw</option>
-          <option value="hufflepuff">Hufflepuff</option>
+          <option value="Gryffindor">Gryffindor</option>
+          <option value="Slytherin">Slytherin</option>
+          <option value="Ravenclaw">Ravenclaw</option>
+          <option value="Hufflepuff">Hufflepuff</option>
         </select>
       </>
     );

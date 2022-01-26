@@ -10,9 +10,9 @@ function CharDetail(props) {
         alt={`Foto de ${props.char.name}`}
         title={`Foto de ${props.char.name}`}
       />
-      <h4 className="card__title">{props.char.name}</h4>
-      <p className="card__description">{props.char.house} </p>
-      <p className="card__description">Edad {props.char.age}</p>
+      <h4 className="card__title">Nombre: {props.char.name}</h4>
+      <p className="card__description">Casa: {props.char.house} </p>
+      <p className="card__description">Especie: {props.char.species}</p>
       {/* <p className="card__description">Email {props.char.email}</p> */}
     </section>
   );

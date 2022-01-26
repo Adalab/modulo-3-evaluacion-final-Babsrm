@@ -1,3 +1,5 @@
+import propTypes from "prop-types";
+
 function FilterName(props) {
     const handleInput = (ev) => {
       props.handleFilter({
@@ -15,7 +17,7 @@ function FilterName(props) {
           className="form__input-text"
           type="text"
           name="name"
-          id="name"
+          id= {props.uuid}
           value={props.filterName}
           onChange={handleInput}
         />
