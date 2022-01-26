@@ -22,7 +22,7 @@ const Char = (props) => {
         
   return (
     <Link to={`/char/${props.char.id}`}>
-      {getImage()};
+      {getImage()}
       <h4 className="card__title">{props.char.name}</h4>
       <p className="card__description">
          {getHouse()}

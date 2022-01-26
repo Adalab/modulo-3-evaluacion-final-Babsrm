@@ -1,7 +1,7 @@
 //import '../styles/App.scss';
 import { useEffect, useState } from 'react';
-import callToApi from '../services/api';
 import {Route, Switch} from 'react-router-dom';
+import callToApi from '../services/api';
 import CharDetail from './CharDetail';
 import CharList from './CharList';
 import Filter from './Filter';

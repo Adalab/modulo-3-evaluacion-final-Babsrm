@@ -7,6 +7,11 @@ function FilterName(props) {
         value: ev.currentTarget.value,
       });
     };
+    // const nameExists = () => {
+    //   if (value !== true) {
+    //     return <p>ERROR NOT FOUND</p>
+    //   } else { }
+    // }
   
     return (
       <>

@@ -11,7 +11,7 @@ const callToApi = (filterHouse) => {
         alive: char.alive,
         image: char.image,
       }}
-    ); console.log(cleanData);
+    );
     return cleanData;})
 };
 
