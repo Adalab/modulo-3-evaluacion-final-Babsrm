@@ -1,15 +1,10 @@
 //import '../styles/App.scss';
 import { useEffect, useState } from 'react';
 import callToApi from '../services/api';
-//import ls from '../services/localstorage';
-import { v4 as uuid } from 'uuid';
-import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import CharDetail from './CharDetail';
 import CharList from './CharList';
 import Filter from './Filter';
-//import PropTypes from 'prop-types';
-
-console.log(uuid());
 
 function App() {
   
@@ -26,18 +21,10 @@ function App() {
 
   //funcion manejadora de los filtros
   const handleFilter = (data) => {
-    if (data.name === 'name') {
+    if (data.key === 'name') {
       setFilterName(data.value);
-    } else if (data.house === 'house') {
+    } else if (data.key === 'house') {
       setFilterHouse(data.value);
-    // } else if (data.key === 'city') {
-    //   if (filterCities.includes(data.value)) {
-    //     const newCities = filterCities.filter((city) => city !== data.value);
-    //     setFilterCities(newCities);
-    //   } else {
-    //     // filterCities.push(data.value);
-    //     setFilterCities([...filterCities, data.value]);
-    //   }
     }
   };
 
@@ -49,57 +36,12 @@ function App() {
         return char.house === filterHouse;
       }
     )
-    // .filter((char) => {
-    //   if (filterCities.length === 0) {
-    //     return true;
-    //   } else {
-    //     return filterCities.includes(char.city);
-    //   }
-   // });
-
   
   const renderCharDetail = (props) => {
-    const routeId = props.match.params.char.uuid;
-    const foundChar = chars.find((char) => char.uuid === routeId);
-    //validar-- foundUser
+    const routeId = props.match.params.char.id;
+    const foundChar = chars.find((char) => char.id === routeId);
     return <CharDetail char={foundChar} />;
   };
-
-  // api
-
-  //const [data, setData] = useState([]);
-
-  /*
-  useEffect(() => {
-    callToApi().then((dataFromApi) => {
-      setData(dataFromApi);
-    });
-  }, []);
-  */
-
-  // local storage
-
-  //const [name, setName] = useState(ls.get('name', ''));
-  //const [email, setEmail] = useState(ls.get('email', ''));
-
-  //useState(ls.get('data', {}).name || '');
-  //useState(ls.get('data', {}).email || '');
-
-  /*
-  useEffect(() => {
-    ls.set('name', name);
-    ls.set('email', email);
-  }, [name, email]);
-  */
-
-  /*
-  useEffect(() => {
-    ls.set('data', {
-      name: name,
-      email: email,
-    });
-  }, [data]);
-  */
 
   return (
     <>
@@ -119,24 +61,5 @@ function App() {
       </Switch>
     </>
   );
-
-
-// default props
-
-/*
-NombreDelComponente.defaultProps = {
-  nombreDeLaProp1: 'valorPorDefectoDeLaProp1',
-  nombreDeLaProp2: 'valorPorDefectoDeLaProp2',
-};
-*/
-
-// prop types
-
-/*
-NombreDeMiComponente.propTypes = {
-  nombreDeMiPropDeTipoStringOpcional: PropTypes.string,
-  nombreDeMiPropDeTipoStringObligatoria: PropTypes.string.isRequired
-}
-*/
 }
 export default App;

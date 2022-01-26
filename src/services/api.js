@@ -7,8 +7,9 @@ const callToApi = (filterHouse) => {
         name: char.name,
         house: char.house,
         id: index,
-        spieces: char.spieces,
+        species: char.species,
         alive: char.alive,
+        image: char.image,
       }}
     ); console.log(cleanData);
     return cleanData;})

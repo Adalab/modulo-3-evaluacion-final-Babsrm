@@ -13,7 +13,6 @@ function CharDetail(props) {
       <h4 className="card__title">Nombre: {props.char.name}</h4>
       <p className="card__description">Casa: {props.char.house} </p>
       <p className="card__description">Especie: {props.char.species}</p>
-      {/* <p className="card__description">Email {props.char.email}</p> */}
     </section>
   );
 }

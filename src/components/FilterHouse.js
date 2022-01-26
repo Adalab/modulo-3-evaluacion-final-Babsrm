@@ -1,5 +1,6 @@
 const FilterHouse = (props) => {
     const handleChange = (ev) => {
+      console.log(ev.target.value);
       props.handleFilter({
         key: 'house',
         value: ev.target.value,

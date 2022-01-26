@@ -17,7 +17,7 @@ function FilterName(props) {
           className="form__input-text"
           type="text"
           name="name"
-          id= {props.uuid}
+          id= {props.id}
           value={props.filterName}
           onChange={handleInput}
         />
