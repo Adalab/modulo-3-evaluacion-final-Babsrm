@@ -83,7 +83,7 @@ function CharDetail(props) {
 	return (
 		<section>
 			<Link to="/"> Volver al inicio</Link>
-			<h2>DETALLE DEL PERSONAJE</h2>
+			<h2>Detalle del Personaje</h2>
 
 			{getImage()}
 			<h4 className="">Nombre: {props.char.name}</h4>

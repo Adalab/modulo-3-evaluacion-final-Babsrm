@@ -12,6 +12,7 @@ function App() {
 	const [chars, setChars] = useState([]);
 	const [filterName, setFilterName] = useState('');
 	const [filterHouse, setFilterHouse] = useState('Gryffindor');
+	const [filterGender, setFilterGender] = useState('');
 
 	useEffect(() => {
 		callToApi(filterHouse).then((charsData) => {
@@ -25,6 +26,8 @@ function App() {
 			setFilterName(data.value);
 		} else if (data.key === 'house') {
 			setFilterHouse(data.value);
+		} else if (data.key === 'gender') {
+			setFilterGender(data.value);
 		}
 	};
 
@@ -34,6 +37,12 @@ function App() {
 		})
 		.filter((char) => {
 			return char.house === filterHouse;
+		})
+		.filter ((char) => {
+			if (filterGender === '') {
+				return char}
+			else 
+				return char.gender === filterGender;
 		});
 
 	const renderCharDetail = (props) => {
@@ -56,8 +65,10 @@ function App() {
 								handleFilter={handleFilter}
 								filterName={filterName}
 								filterHouse={filterHouse}
+								filterGender={filterGender}
 								setFilterName={setFilterName}
 								setFilterHouse={setFilterHouse}
+								setFilterGender={setFilterGender}
 							/>
 							<CharList chars={filteredChars} />
 						</div>
