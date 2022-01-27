@@ -3,7 +3,7 @@ import Char from './Char';
 function CharList(props) {
 	const charsElements = props.chars.map((char) => {
 		return (
-			<li className="" key={char.id}>
+			<li className="li-cards" key={char.id}>
 				<Char char={char} />
 			</li>
 		);
@@ -11,7 +11,7 @@ function CharList(props) {
 
 	return (
 		<section>
-			<ul className="">
+			<ul className="ul-cards">
 				{charsElements.length > 0
 					? charsElements
 					: 'No se encuentra el personaje'}

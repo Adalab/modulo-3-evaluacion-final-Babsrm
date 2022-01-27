@@ -19,7 +19,7 @@ const Char = (props) => {
 		} else
 			return (
 				<img
-					className=""
+					className="card-picture"
 					src={props.char.image}
 					alt={`Foto de ${props.char.name}`}
 					title={`Foto de ${props.char.name}`}
@@ -44,10 +44,12 @@ const Char = (props) => {
 
 	return (
 		<Link to={`/char/${props.char.id}`}>
-			{getImage()}
-			<h4 className="">{props.char.name}</h4>
-			<p className="">{getHouse()}</p>
-			<p>{charSpecies()}</p>
+			<div className="cards">
+				{getImage()}
+				<h4 className="">{props.char.name}</h4>
+				<p className="">{getHouse()}</p>
+				<p>{charSpecies()}</p>
+			</div>
 		</Link>
 	);
 };

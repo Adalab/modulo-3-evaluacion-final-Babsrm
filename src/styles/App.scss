@@ -1,0 +1,14 @@
+.card-picture {
+    height: 200px;
+    width: 200px;
+}
+.cards {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: auto;
+    align-items: center;
+}
+.ul-cards{
+    list-style: none;
+}

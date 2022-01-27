@@ -1,4 +1,4 @@
-//import '../styles/App.scss';
+import '../styles/App.scss';
 import { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import callToApi from '../services/api';
@@ -60,7 +60,7 @@ function App() {
 			<Switch>
 				<Route path="/" exact>
 					<main>
-						<div className="">
+						<div>
 							<Filter
 								handleFilter={handleFilter}
 								filterName={filterName}
@@ -69,9 +69,10 @@ function App() {
 								setFilterName={setFilterName}
 								setFilterHouse={setFilterHouse}
 								setFilterGender={setFilterGender}
-							/>
-							<CharList chars={filteredChars} />
-						</div>
+							/></div>
+							<div className="main-box">
+							<CharList chars={filteredChars} /></div>
+						
 					</main>
 				</Route>
 				<Route path="/char/:charId" render={renderCharDetail} />
