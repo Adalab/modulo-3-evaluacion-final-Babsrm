@@ -1,34 +1,39 @@
 import { Link } from 'react-router-dom';
 import imageNotFound from '../images/image-not-found.png';
 const Char = (props) => {
-  const getHouse = () =>{
-        if (props.char.house === 'Gryffindor')return 'Gryffindor';
-        else if (props.char.house === 'Slytherin') return 'Slytherin';
-        else if (props.char.house === 'Ravenclaw') return 'Ravenclaw';
-        else if(props.char.house === 'Hufflepuff') return 'Hufflepuff';} 
-  const getImage = () => {
-    if (props.char.image=== '')
-      {return <img
-        alt='Imagen no encontrada'
-        title= 'Imagen no encontrada'
-        src= {imageNotFound}
-      />} else return <img
-        className="card__img"
-        src={props.char.image}
-        alt={`Foto de ${props.char.name}`}
-        title={`Foto de ${props.char.name}`}
-      /> 
-  }
-        
-  return (
-    <Link to={`/char/${props.char.id}`}>
-      {getImage()}
-      <h4 className="card__title">{props.char.name}</h4>
-      <p className="card__description">
-         {getHouse()}
-      </p>
-      <p>{props.char.species}</p>
-    </Link>
-  );
+	const getHouse = () => {
+		if (props.char.house === 'Gryffindor') return 'Gryffindor';
+		else if (props.char.house === 'Slytherin') return 'Slytherin';
+		else if (props.char.house === 'Ravenclaw') return 'Ravenclaw';
+		else if (props.char.house === 'Hufflepuff') return 'Hufflepuff';
+	};
+	const getImage = () => {
+		if (props.char.image === '') {
+			return (
+				<img
+					alt="Imagen no encontrada"
+					title="Imagen no encontrada"
+					src={imageNotFound}
+				/>
+			);
+		} else
+			return (
+				<img
+					className="card__img"
+					src={props.char.image}
+					alt={`Foto de ${props.char.name}`}
+					title={`Foto de ${props.char.name}`}
+				/>
+			);
+	};
+
+	return (
+		<Link to={`/char/${props.char.id}`}>
+			{getImage()}
+			<h4 className="card__title">{props.char.name}</h4>
+			<p className="card__description">{getHouse()}</p>
+			<p>{props.char.species}</p>
+		</Link>
+	);
 };
 export default Char;

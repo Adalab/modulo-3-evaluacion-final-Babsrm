@@ -1,32 +1,25 @@
-import propTypes from "prop-types";
-
 function FilterName(props) {
-    const handleInput = (ev) => {
-      props.handleFilter({
-        key: 'name',
-        value: ev.currentTarget.value,
-      });
-    };
-    // const nameExists = () => {
-    //   if (value !== true) {
-    //     return <p>ERROR NOT FOUND</p>
-    //   } else { }
-    // }
-  
-    return (
-      <>
-        <label className="form__label display-block" htmlFor="name">
-          Filtrar por nombre:
-        </label>
-        <input
-          className="form__input-text"
-          type="text"
-          name="name"
-          id= {props.id}
-          value={props.filterName}
-          onChange={handleInput}
-        />
-      </>
-    );
-  }
-  export default FilterName;
+	const handleInput = (ev) => {
+		props.handleFilter({
+			key: 'name',
+			value: ev.currentTarget.value,
+		});
+	};
+
+	return (
+		<>
+			<label className="form__label display-block" htmlFor="name">
+				Filtrar por nombre:
+			</label>
+			<input
+				className="form__input-text"
+				type="text"
+				name="name"
+				id={props.id}
+				value={props.filterName}
+				onChange={handleInput}
+			/>
+		</>
+	);
+}
+export default FilterName;
