@@ -4,6 +4,8 @@ import GryffindorLogo from '../images/gryffindor_logo35px.png';
 import HufflepuffLogo from '../images/hufflepuff_logo35px.png';
 import RavenclawLogo from '../images/ravenclaw_logo35px.png';
 import SlytherinLogo from '../images/slytherin_logo35px.png';
+import LifeImg from '../images/lifeimg35.png';
+import DeathImg from '../images/deathimg35.png';
 
 function CharDetail(props) {
 	const getImage = () => {
@@ -43,15 +45,15 @@ function CharDetail(props) {
 	const charAlive = () => {
 		if (props.char.alive) {
 			if (props.char.gender === 'male') {
-				return 'Vivo';
-			} else {
-				return 'Viva';
-			}}
-		else {
+				return <><p>Vivo</p> <img src={LifeImg} alt='Está vivo' /></> ;
+		} else {
+				return  <><p>Viva</p> <img src={LifeImg} alt='Está viva' /></>;
+			}
+		} else {
 			if (props.char.gender === 'male') {
-				return 'Muerto';
+				return  <><p>Muerto</p> <img src={DeathImg} alt='Está muerto' /></>;
 			} else {
-				return 'Muerta';
+				return <><p>Muerta</p> <img src={DeathImg} alt='Está muerta' /></>;
 			}
 		}
 	};
@@ -61,7 +63,7 @@ function CharDetail(props) {
 	const charAltName = () => {
 		if (props.char.altName.length > 0) {
 			return (
-				<p className="card__description">
+				<p className="">
 					Nombre alternativo: {props.char.altName}
 				</p>
 			);
@@ -69,27 +71,28 @@ function CharDetail(props) {
 	};
 	const charHouseLogo = () => {
 		if (props.char.house === 'Gryffindor') {
-			return GryffindorLogo;
+			return <img src={GryffindorLogo} alt='Gryffindor Logo'/>;
 		} else if (props.char.house === 'Hufflepuff') {
-			return HufflepuffLogo;
+			return <img src={HufflepuffLogo} alt='Hufflepuff Logo'/>;
 		} else if (props.char.house === 'Ravenclaw') {
-			return RavenclawLogo;
+			return <img src={RavenclawLogo} alt='Ravenclaw Logo'/>;
 		} else if (props.char.house === 'Slytherin') {
-			return SlytherinLogo;
+			return <img src={SlytherinLogo} alt='Slytherin Logo'/>;
 		}
 	};
 	return (
 		<section>
 			<Link to="/"> Volver al inicio</Link>
 			<h2>DETALLE DEL PERSONAJE</h2>
+
 			{getImage()}
-			<h4 className="card__title">Nombre: {props.char.name}</h4>
-			<p className="card__description">
+			<h4 className="">Nombre: {props.char.name}</h4>
+			<p className="">
 				Casa: {props.char.house} {charHouseLogo()}{' '}
 			</p>
-			<p className="card__description">Especie: {charSpecies()}</p>
-			<p className="card__description">Estado: {charAlive()}</p>
-			<p className="card__description">Género: {charGender()}</p>
+			<p className="">Especie: {charSpecies()}</p>
+			<p className="">Estado: {charAlive()}</p>
+			<p className="">Género: {charGender()}</p>
 			{charAltName()}
 		</section>
 	);

@@ -8,11 +8,11 @@ function FilterName(props) {
 
 	return (
 		<>
-			<label className="form__label display-block" htmlFor="name">
+			<label className="" htmlFor="name">
 				Filtrar por nombre:
 			</label>
 			<input
-				className="form__input-text"
+				className=""
 				type="text"
 				name="name"
 				id={props.id}

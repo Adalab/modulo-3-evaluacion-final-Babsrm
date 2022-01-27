@@ -5,9 +5,10 @@ import callToApi from '../services/api';
 import CharDetail from './CharDetail';
 import CharList from './CharList';
 import Filter from './Filter';
+import HogwartsLogo from '../images/hogwartshouses_logo200.png';
+import HPLogo from '../images/hp_logo500.png';
 
 function App() {
-	const getTitle = (text) => <h1>{text}</h1>;
 	const [chars, setChars] = useState([]);
 	const [filterName, setFilterName] = useState('');
 	const [filterHouse, setFilterHouse] = useState('Gryffindor');
@@ -40,28 +41,29 @@ function App() {
 		const foundChar = chars.find((char) => char.id === routeId);
 		return <CharDetail char={foundChar} />;
 	};
-	
 
 	return (
 		<>
 			<header>
-			<div>{getTitle('Harry Potter')}</div></header>
+				<img src={HogwartsLogo} alt="Hogwarts Logo" />
+				<img src={HPLogo} alt="Harry Potter Logo" />
+			</header>
 			<Switch>
 				<Route path="/" exact>
 					<main>
-						<div className="col2">
-						<Filter
-							handleFilter={handleFilter}
-							filterName={filterName}
-							filterHouse={filterHouse}
-							setFilterName={setFilterName}
-							setFilterHouse={setFilterHouse}
-						/>
-						<CharList chars={filteredChars}/>
-					</div></main>
+						<div className="">
+							<Filter
+								handleFilter={handleFilter}
+								filterName={filterName}
+								filterHouse={filterHouse}
+								setFilterName={setFilterName}
+								setFilterHouse={setFilterHouse}
+							/>
+							<CharList chars={filteredChars} />
+						</div>
+					</main>
 				</Route>
-				<Route path="/char/:charId" render={renderCharDetail}			
-				/>
+				<Route path="/char/:charId" render={renderCharDetail} />
 			</Switch>
 		</>
 	);

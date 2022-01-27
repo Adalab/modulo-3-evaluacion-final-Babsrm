@@ -8,11 +8,11 @@ const FilterHouse = (props) => {
 	};
 	return (
 		<>
-			<label className="form__label display-block" htmlFor="house">
+			<label className="" htmlFor="house">
 				Casas:
 			</label>
 			<select
-				className="form__input-text"
+				className=""
 				name="house"
 				id="house"
 				onChange={handleChange}

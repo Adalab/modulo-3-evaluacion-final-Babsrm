@@ -3,9 +3,9 @@ import FilterHouse from './FilterHouse';
 const Filter = (props) => {
 	const resetForm = (ev) => {
 		ev.preventDefault();
-	    props.setFilterName('');
-	    props.setFilterHouse('Gryffindor');
-	  }
+		props.setFilterName('');
+		props.setFilterHouse('Gryffindor');
+	};
 	return (
 		<section>
 			<form>
