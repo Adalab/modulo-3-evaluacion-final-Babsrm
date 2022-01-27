@@ -39,7 +39,8 @@ const Char = (props) => {
 			return 'Fantasma';
 		} else if (props.char.species === 'werewolf') {
 			return 'Hombre-lobo';
-		}}
+		}
+	};
 
 	return (
 		<Link to={`/char/${props.char.id}`}>
