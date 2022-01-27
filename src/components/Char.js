@@ -26,13 +26,27 @@ const Char = (props) => {
 				/>
 			);
 	};
+	const charSpecies = () => {
+		if (props.char.species === 'human') {
+			if (props.char.gender === 'male') {
+				return 'Humano';
+			} else {
+				return 'Humana';
+			}
+		} else if (props.char.species === 'half-giant') {
+			return 'Medio-gigante';
+		} else if (props.char.species === 'ghost') {
+			return 'Fantasma';
+		} else if (props.char.species === 'werewolf') {
+			return 'Hombre-lobo';
+		}}
 
 	return (
 		<Link to={`/char/${props.char.id}`}>
 			{getImage()}
 			<h4 className="card__title">{props.char.name}</h4>
 			<p className="card__description">{getHouse()}</p>
-			<p>{props.char.species}</p>
+			<p>{charSpecies()}</p>
 		</Link>
 	);
 };

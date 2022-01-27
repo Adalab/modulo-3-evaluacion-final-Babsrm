@@ -1,3 +1,5 @@
+import CharDetail from "../components/CharDetail";
+
 const callToApi = (filterHouse) => {
   return fetch(`http://hp-api.herokuapp.com/api/characters/house/${filterHouse}`)
     .then((response) => response.json())
@@ -10,6 +12,8 @@ const callToApi = (filterHouse) => {
         species: char.species,
         alive: char.alive,
         image: char.image,
+        gender: char.gender,
+        altName: char.alternate_names,
       }}
     );
     return cleanData;})
