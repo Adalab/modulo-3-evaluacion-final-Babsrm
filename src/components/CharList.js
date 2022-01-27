@@ -8,9 +8,12 @@ function CharList(props) {
 			</li>
 		);
 	});
+	
 	return (
 		<section>
-			<ul className="cards">{charsElements}</ul>
+			<ul className="cards">
+				{charsElements.length > 0 ? charsElements : 'No se encuentra el personaje'} 
+				</ul>
 		</section>
 	);
 }

@@ -40,26 +40,28 @@ function App() {
 		const foundChar = chars.find((char) => char.id === routeId);
 		return <CharDetail char={foundChar} />;
 	};
+	
 
 	return (
 		<>
 			<header>
-				<div>{getTitle('Harry Potter')}</div>
-			</header>
+			<div>{getTitle('Harry Potter')}</div></header>
 			<Switch>
 				<Route path="/" exact>
 					<main>
 						<div className="col2">
-							<Filter
-								handleFilter={handleFilter}
-								filterName={filterName}
-								filterHouse={filterHouse}
-							/>
-							<CharList chars={filteredChars} />
-						</div>
-					</main>
+						<Filter
+							handleFilter={handleFilter}
+							filterName={filterName}
+							filterHouse={filterHouse}
+							setFilterName={setFilterName}
+							setFilterHouse={setFilterHouse}
+						/>
+						<CharList chars={filteredChars}/>
+					</div></main>
 				</Route>
-				<Route path="/char/:charId" render={renderCharDetail} />
+				<Route path="/char/:charId" render={renderCharDetail}			
+				/>
 			</Switch>
 		</>
 	);
