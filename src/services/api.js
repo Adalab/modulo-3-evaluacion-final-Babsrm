@@ -14,6 +14,7 @@ const callToApi = (filterHouse) => {
         image: char.image,
         gender: char.gender,
         altName: char.alternate_names,
+        actor: char.actor,
       }}
     );
     return cleanData;})
